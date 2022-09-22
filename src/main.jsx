@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client'
 
 // styles
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './styles/index.css'
+import './styles/App.css'
 // components
 
 // Router
