@@ -28,7 +28,7 @@ const Country = () => {
               <div className='col-md-5 col-sm-12 col-xs-12'>
                 <div className='product-image'>
                   <div id='myCarousel-2 ' className='carousel slide'>
-                    <img src={list.product.image} className='col-md-12 col-sm-12 col-xs-12' alt={list.product.name} />
+                    <img src={list.product.image} className='img-responsive col-md-12 col-sm-12 col-xs-12' alt={list.product.name} />
                   </div>
                 </div>
               </div>

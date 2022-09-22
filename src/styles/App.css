@@ -405,7 +405,8 @@ list-style: none ;
 }
 
 .img-responsive {
-  height:inherit;
+  max-height: 435px;
+
 }
 
 
