@@ -3,10 +3,20 @@ import useGetData from '../hooks/useGetData'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 
+import React, { useState } from 'react'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Modal from 'react-bootstrap/Modal'
+
 const Country = () => {
   const { name = '' } = useParams()
   console.log('nombre ', name)
   const { list, loading, error } = useGetData(name)
+
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   if (error) return <p>{error}</p>
   if (loading) {
@@ -72,16 +82,49 @@ const Country = () => {
                   <Tab eventKey='profile' title='Profile'>
                     <a>HOla 2</a>
                   </Tab>
-                  <Tab eventKey='contact' title='Contact' disabled>
+                  <Tab eventKey='contact' title='Contact'>
                     <a>HOla 3</a>
                   </Tab>
                 </Tabs>
 
                 <hr />
                 <div className='row'>
-                  <div className='col-sm-12 col-md-6 col-lg-6'>
-                    <a href='javascript:void(0);' className='btn btn-success btn-lg'>Agregar Inspeccion </a>
-                  </div>
+                  <>
+                    <Button variant='primary' onClick={handleShow}>
+                      Agregar Inspeccion
+                    </Button>
+
+                    <Modal show={show} onHide={handleClose}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Agregar Inspeccion</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                        <Form>
+                          <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
+                            <Form.Label>Fecha de Inspeccion</Form.Label>
+                            <Form.Control
+                              type='date'
+                            />
+                          </Form.Group>
+                          <Form.Group
+                            className='mb-3'
+                            controlId='exampleForm.ControlTextarea1'
+                          >
+                            <Form.Label>Describir Reparacion</Form.Label>
+                            <Form.Control as='textarea' rows={3} />
+                          </Form.Group>
+                        </Form>
+                      </Modal.Body>
+                      <Modal.Footer>
+                        <Button variant='secondary' onClick={handleClose}>
+                          Close
+                        </Button>
+                        <Button variant='primary' onClick={handleClose}>
+                          Guardar Cambios
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
+                  </>
 
                 </div>
               </div>
