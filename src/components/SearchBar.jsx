@@ -60,7 +60,7 @@ const SearchBar = () => {
                   </Form.Group>
                   <Form.Group className='mb-3' controlId='formBasicPhoto'>
                     <Form.Label>Insertar Enlace de foto</Form.Label>
-                    <Form.Control type='text' placeholder='Foto de maquina' />
+                    <Form.Control type='text' placeholder='Foto' />
                   </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>

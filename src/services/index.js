@@ -25,4 +25,10 @@ const getData = async (name = '') => {
   return res
 }
 
-export { getCountries, getCountry, getData }
+const registerMachine = async (userData) => {
+  const response = await axios.post(`${baseUrl2}/products/`, userData)
+  console.log('datos :', response.data)
+  return response.data
+}
+
+export { getCountries, getCountry, getData, registerMachine }
